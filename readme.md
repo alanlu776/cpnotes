@@ -162,3 +162,28 @@ int main() {
     return 0;
 }
 ```
+bisect example
+```
+def grade(score, breakpoints=[60, 70, 80, 90], grades='FDCBA'):
+    i = bisect(breakpoints, score)
+    return grades[i]
+[grade(score) for score in [33, 99, 77, 70, 89, 90, 100]]
+['F', 'A', 'C', 'C', 'B', 'A', 'A']
+```
+C++ lower_bound example
+```
+  std::sort (v.begin(), v.end());                // 10 10 10 20 20 20 30 30
+
+  std::vector<int>::iterator low,up;
+  low=std::lower_bound (v.begin(), v.end(), 20); //          ^
+  up= std::upper_bound (v.begin(), v.end(), 20); //                   ^
+```
+C++ set lower_bound example
+```
+  for (int i=1; i<10; i++) myset.insert(i*10); // 10 20 30 40 50 60 70 80 90
+
+  itlow=myset.lower_bound (30);                //       ^
+  itup=myset.upper_bound (60);                 //                   ^
+
+  myset.erase(itlow,itup);                     // 10 20 70 80 90
+```
